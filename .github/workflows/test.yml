@@ -2,8 +2,10 @@ name: CI
 on: push
 
 jobs:
-  hello-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-    - name: Printing Hello World
-      run: echo "Hello World!!"
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - run: npm install
+    - run: npm test
